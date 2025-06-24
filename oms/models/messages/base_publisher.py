@@ -1,12 +1,13 @@
 from dataclasses import asdict, dataclass
 from time import time
 from typing import Any, Dict, Optional
+from oms.models.minified.users import UserMin
 
 @dataclass
 class BasePubsubMessage:
     payload: Any
     origin_timestamp: int
-    author: min_models.UserMin
+    author: UserMin
     version: str
     published_at: int = round(time() * 1000)
     context: Optional[dict] = None
