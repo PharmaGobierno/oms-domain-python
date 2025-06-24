@@ -1,17 +1,18 @@
 
 from dataclasses import dataclass
 from typing import Dict
-from pharmagob.v1.models.location_content import LocationContentModel
+from oms.models.v1.remission_events import RemissionEventsModel
+from .base_publisher import BasePubsubMessage
 
 @dataclass(kw_only=True)
-class LocationContentEventsPubsubMessage(BasePubsubMessage):
-    payload: LocationContentModel
+class RemissionEventsPubsubMessage(BasePubsubMessage):
+    payload: RemissionEventsModel
     event: str
     version: str = "1"
 
     @classmethod
     def topic(cls) -> str:
-        return "location-content-events"
+        return "remission-events"
 
     def get_attributes(self) -> Dict[str, str]:
         default_attributes = super().get_attributes()
