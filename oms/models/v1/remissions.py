@@ -1,11 +1,13 @@
 from dataclasses import dataclass
 from typing import Optional
 
+from oms.models.submodels.v1.remission_destinations import RemissionDestination
+
+from oms.models.v1.minified.items import ItemMin
+from oms.models.v1.minified.users import UserMin
+
 from ._base import UpdatableModel, uuid_by_params
-from oms.models.minified.items import ItemMin
-from oms.models.minified.users import UserMin
-from oms.models.submodels.remission_destinations import RemissionDestination
-from oms.models.enums.remission_events import RemissionEvents
+from ._enums import OrderTypes, RemissionEvents
 
 
 @dataclass(kw_only=True)
@@ -15,6 +17,7 @@ class RemissionsModel(UpdatableModel):
     tracking_id: str
     order_id: str
     last_author: UserMin
+    order_type: OrderTypes
     current_event: RemissionEvents
     current_event_timestamp: int
     original_amount: Optional[int] = None

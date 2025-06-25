@@ -1,5 +1,10 @@
 from enum import Enum
 
+
+class OrderTypes(str, Enum):
+    REMISSION = "REMISSION"
+
+
 class RemissionEvents(str, Enum):
     INTEGRATED = "INTEGRATED"
     TRANSPORT_ARRIVAL = "TRANSPORT_ARRIVAL"

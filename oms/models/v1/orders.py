@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from typing import List
 
 from ._base import UpdatableModel, uuid_by_params
-from oms.models.enums.order_types import OrderTypes
+from ._enums import OrderTypes
 
 
 @dataclass(kw_only=True)
@@ -12,7 +12,6 @@ class OrdersModel(UpdatableModel):
     tracking_id: str
     current_type: OrderTypes
     types: List[OrderTypes]
-
 
     def __post_init__(self):
         super().__post_init__()

@@ -1,31 +1,29 @@
 from dataclasses import dataclass
-from typing import Optional, List
+from typing import List, Optional
 
-from ._base import UpdatableModel, uuid_by_params
-from oms.models.minified.users import UserMin
-from oms.models.submodels.remission_evidences import RemissionEvidence
-from oms.models.submodels.remission_event_notes import RemissionEventNote
-from oms.models.enums.remission_events import RemissionEvents
+from oms.models.submodels.v1.remission_event_notes import RemissionEventNote
+from oms.models.submodels.v1.remission_evidences import RemissionEvidence
+
+from oms.models.v1.minified.users import UserMin
+
+from ._base import EventfulModel, uuid_by_params
+from ._enums import RemissionEvents
 
 
 @dataclass(kw_only=True)
-class RemissionEventsModel(UpdatableModel):
+class RemissionEventsModel(EventfulModel[RemissionEvents]):
     __entity_name__ = "remission-events"
 
     remission_id: str
     tracking_id: str
-    event: RemissionEvents
-    event_timestamp: int
     author: UserMin
-    evidences: List[RemissionEvidence]
+    evidences: Optional[List[RemissionEvidence]] = None
     load_id: Optional[str] = None
     loaded_amount: Optional[int] = None
     delivered_amount: Optional[int] = None
     metadata: Optional[dict] = None
-    event_note: Optional[RemissionEventNote] = None
-    
-
+    event_note: RemissionEventNote = RemissionEventNote()
 
     def __post_init__(self):
         super().__post_init__()
-        self._id = uuid_by_params(self.tracking_id, self.event, self.event_timestamp)
+        self._id = uuid_by_params(self.tracking_id, self.event_timestamp)

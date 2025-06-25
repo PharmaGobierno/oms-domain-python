@@ -1,5 +1,6 @@
 from dataclasses import dataclass
-from typing import Optional, Literal
+from typing import Literal, Optional
+
 
 @dataclass
 class RemissionEvidence:
@@ -7,4 +8,4 @@ class RemissionEvidence:
     version: Literal["1.0.0"] = "1.0.0"
     type: Optional[str] = None
     validation_timestamp: Optional[int] = None
-    validation_status: Optional[str] = None
+    validation_status: Optional[str] = None  # TODO: Define enum

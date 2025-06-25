@@ -1,4 +1,5 @@
-from typing import Generic, Iterator, List, Optional, Tuple, Type, TypeVar, Union
+from typing import (Generic, Iterator, List, Optional, Tuple, Type, TypeVar,
+                    Union)
 
 from oms.models.v1._base import BaseModel
 from oms.repository_interfaces.v1._base import BaseRepositoryInterface
@@ -36,12 +37,11 @@ class BaseService(Generic[ModelT, RepositoryInterfaceT]):
         self,
         entity_id,
         *,
-        umu_id: Optional[str] = None,
         sort: Optional[List[Tuple[str, int]]] = None,
         projection: Optional[Union[list, dict]] = None,
     ) -> Optional[ModelT]:
         data: dict = self.repository.get(
-            entity_id, umu_id=umu_id, sort=sort, projection=projection
+            entity_id, sort=sort, projection=projection
         )
         if not data:
             return None
@@ -52,7 +52,6 @@ class BaseService(Generic[ModelT, RepositoryInterfaceT]):
         page: int,
         limit: int,
         *,
-        umu_id: Optional[str] = None,
         and_conditions: Optional[List[tuple]] = None,
         sort: Optional[List[Tuple[str, int]]] = None,
         projection: Optional[List[str]] = None,
@@ -60,7 +59,6 @@ class BaseService(Generic[ModelT, RepositoryInterfaceT]):
         count, result = self.repository.get_paginated(
             page,
             limit,
-            umu_id=umu_id,
             and_conditions=and_conditions,
             sort=sort,
             projection=projection,

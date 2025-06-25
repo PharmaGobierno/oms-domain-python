@@ -24,6 +24,7 @@ def uuid_by_params(*args):
 class BaseModel:
     _id: str = field(default_factory=lambda: str(uuid4()))
     created_at: int = field(default_factory=lambda: round(time() * 1000))
+    tenant_id: str = ""  # TODO: Define Tenant ID for multi-tenancy support
     version: str = "1.0.0"
 
     @classmethod
@@ -71,15 +72,15 @@ class UpdatableModel(BaseModel):
 
 
 @dataclass(kw_only=True)
-class EventfulModel(BaseModel, Generic[EventAttributeT]):
+class EventfulModel(UpdatableModel, Generic[EventAttributeT]):
     """A generic dataclass representing a event entity with
-    transition timestamp. Using in event sourcing entities
+    event timestamp. Using in event sourcing entities
 
     Attributes:
-        transition_timestamp (int): The timestamp of the event
-            transition.
+        event_timestamp (int): The timestamp of the event
+            event.
         event (EventAttributeT): The current event of the entity.
     """
 
-    transition_timestamp: int
+    event_timestamp: int
     event: EventAttributeT
