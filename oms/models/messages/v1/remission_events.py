@@ -4,7 +4,7 @@ from typing import Dict
 
 from oms.models.v1.remission_events import RemissionEventsModel
 
-from ._enums import ResmissionEventActions
+from ._enums import EntityActionTypes
 from .base_publisher import BasePubsubMessage
 
 
@@ -12,7 +12,7 @@ from .base_publisher import BasePubsubMessage
 class RemissionEventsPubsubMessage(BasePubsubMessage):
     payload: RemissionEventsModel
     event: str
-    action: ResmissionEventActions
+    action_type: EntityActionTypes
     version: str = "1"
 
     @classmethod
@@ -21,4 +21,4 @@ class RemissionEventsPubsubMessage(BasePubsubMessage):
 
     def get_attributes(self) -> Dict[str, str]:
         default_attributes = super().get_attributes()
-        return {**default_attributes, "event": self.event, "action": self.action.value}
+        return {**default_attributes, "event": self.event, "action": self.action_type.value}

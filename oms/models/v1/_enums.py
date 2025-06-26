@@ -12,3 +12,8 @@ class RemissionEvents(str, Enum):
     PARTIAL_COMPLETE = "PARTIAL_COMPLETE"
     COMPLETE = "COMPLETE"
     REJECTED = "REJECTED"
+
+
+class ResmissionMigrationOrigins(str, Enum):
+    FIRESTORE = "FIRESTORE"
+    BLUEYONDER = "BLUEYONDER"

@@ -1,6 +1,12 @@
 from enum import Enum
 
 
-class ResmissionEventActions(str, Enum):
+class EntityActionTypes(str, Enum):
     CREATED = "CREATED"
     UPDATED = "UPDATED"
+    DELETED = "DELETED"
+
+
+class ResmissionMigrationOrigins(str, Enum):
+    FIRESTORE = "FIRESTORE"
+    BLUEYONDER = "BLUEYONDER"
