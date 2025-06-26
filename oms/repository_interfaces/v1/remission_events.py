@@ -1,5 +1,5 @@
 from ._base import BaseRepositoryInterface
 
 
-class RemissionEventRepositoryInterface(BaseRepositoryInterface):
+class RemissionEventsRepositoryInterface(BaseRepositoryInterface):
     pass
