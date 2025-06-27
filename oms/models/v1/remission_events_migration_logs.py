@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Optional
+from typing import List, Optional
 
 from ._base import BaseModel, uuid_by_params
 from ._enums import ResmissionMigrationOrigins
@@ -10,13 +10,12 @@ class RemissionEventsMigrationLogsModel(BaseModel):
     __entity_name__ = "remission-events-mirgration-logs"
 
     tracking_id: str
-    origin: ResmissionMigrationOrigins
+    origin_type: ResmissionMigrationOrigins
+    origin_id: Optional[str] = None
     origin_timestamp: int
-    event: str
+    events: List[str]
     migration_payload: dict
-    migration_event_result: Optional[dict] = None
-    context: Optional[dict] = None
 
     def __post_init__(self):
         super().__post_init__()
-        self._id = uuid_by_params(self.origin_timestamp, self.origin.value, self.event)
+        self._id = uuid_by_params(self.origin_timestamp, self.origin_id)
