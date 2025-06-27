@@ -19,4 +19,4 @@ class RemissionEventsMigrationLogsModel(BaseModel):
 
     def __post_init__(self):
         super().__post_init__()
-        self._id = uuid_by_params(self.origin_timestamp, self.origin.value)
+        self._id = uuid_by_params(self.origin_timestamp, self.origin.value, self.event)
