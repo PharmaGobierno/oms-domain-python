@@ -2,7 +2,6 @@ from dataclasses import dataclass
 from typing import Optional
 
 from oms.models.submodels.v1.remission_destinations import RemissionDestination
-
 from oms.models.v1.minified.items import ItemMin
 from oms.models.v1.minified.users import UserMin
 
@@ -18,8 +17,8 @@ class RemissionsModel(UpdatableModel):
     order_id: str
     last_author: UserMin
     order_type: OrderTypes
-    current_event: RemissionEvents
-    current_event_timestamp: int
+    current_event: Optional[RemissionEvents] = None
+    current_event_timestamp: Optional[int] = None
     original_amount: Optional[int] = None
     item: Optional[ItemMin] = None
     lote: Optional[str] = None
