@@ -6,7 +6,7 @@ from oms.models.v1.minified.items import ItemMin
 from oms.models.v1.minified.users import UserMin
 
 from ._base import UpdatableModel, uuid_by_params
-from ._enums import OrderTypes, RemissionEvents
+from ._enums import RemissionEvents
 
 
 @dataclass(kw_only=True)
@@ -15,7 +15,6 @@ class RemissionsModel(UpdatableModel):
 
     tracking_id: str
     order_id: str
-    order_type: OrderTypes
     current_event: Optional[RemissionEvents] = None
     current_event_timestamp: Optional[int] = None
     last_load: Optional[str] = None
