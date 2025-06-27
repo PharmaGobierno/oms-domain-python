@@ -12,6 +12,7 @@ class RemissionEventsMigrationLogsModel(BaseModel):
     tracking_id: str
     origin: ResmissionMigrationOrigins
     origin_timestamp: int
+    event: str
     migration_payload: dict
     migration_event_result: Optional[dict] = None
     context: Optional[dict] = None
