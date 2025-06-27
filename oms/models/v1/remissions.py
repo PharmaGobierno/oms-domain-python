@@ -15,15 +15,15 @@ class RemissionsModel(UpdatableModel):
 
     tracking_id: str
     order_id: str
-    last_author: UserMin
     order_type: OrderTypes
     current_event: Optional[RemissionEvents] = None
     current_event_timestamp: Optional[int] = None
+    last_load: Optional[str] = None
+    last_author: Optional[UserMin] = None
     original_amount: Optional[int] = None
     item: Optional[ItemMin] = None
     lote: Optional[str] = None
     destination: Optional[RemissionDestination] = None
-    last_load: Optional[str] = None
 
     def __post_init__(self):
         super().__post_init__()
