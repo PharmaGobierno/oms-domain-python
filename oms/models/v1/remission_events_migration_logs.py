@@ -9,6 +9,7 @@ class RemissionEventsMigrationLogsModel(BaseModel):
     __entity_name__ = "remission-events-mirgration-logs"
 
     payload: dict
+    tracking_id: str
     origin: ResmissionMigrationOrigins
     origin_timestamp: int
 
