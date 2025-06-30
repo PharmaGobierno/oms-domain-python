@@ -13,7 +13,7 @@ class RemissionEventsMigrationLogsModel(BaseModel):
     origin_type: ResmissionMigrationOrigins
     origin_id: Optional[str] = None
     origin_timestamp: int
-    events: List[str]
+    processed_events: List[str] = []
     migration_payload: dict
 
     def __post_init__(self):

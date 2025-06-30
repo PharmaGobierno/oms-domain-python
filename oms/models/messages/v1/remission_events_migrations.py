@@ -9,8 +9,11 @@ from .base_publisher import BasePubsubMessage
 class RemissionEventMigrationsPubsubMessage(BasePubsubMessage):
     payload: dict
     tracking_id: str
+    remssion_id: str
+    migration_log_id: str
     event: str
     origin: ResmissionMigrationOrigins
+    origin_id: str
     version: str = "1"
 
     @classmethod
@@ -19,4 +22,8 @@ class RemissionEventMigrationsPubsubMessage(BasePubsubMessage):
 
     def get_attributes(self) -> Dict[str, str]:
         default_attributes = super().get_attributes()
-        return {**default_attributes, "origin": self.origin.value, "event": self.event}
+        return {
+            **default_attributes,
+            "origin": self.origin.value,
+            "origin_id": self.origin_id,
+        }
