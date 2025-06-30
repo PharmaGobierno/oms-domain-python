@@ -9,7 +9,7 @@ from .base_publisher import BasePubsubMessage
 class RemissionEventMigrationsPubsubMessage(BasePubsubMessage):
     payload: dict
     tracking_id: str
-    remssion_id: str
+    remission_id: str
     migration_log_id: str
     event: str
     origin: ResmissionMigrationOrigins
