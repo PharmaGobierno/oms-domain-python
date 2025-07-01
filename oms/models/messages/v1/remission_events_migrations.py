@@ -23,7 +23,7 @@ class RemissionEventMigrationsPubsubMessage(BasePubsubMessage):
 
     @classmethod
     def topic(cls) -> str:
-        return "oms-remission-event-migrations"
+        return "oms-remission-events-migrations"
 
     def get_attributes(self) -> Dict[str, str]:
         default_attributes = super().get_attributes()
