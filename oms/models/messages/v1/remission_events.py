@@ -1,4 +1,3 @@
-
 from dataclasses import dataclass
 from typing import Dict
 
@@ -17,8 +16,12 @@ class RemissionEventsPubsubMessage(BasePubsubMessage):
 
     @classmethod
     def topic(cls) -> str:
-        return "remission-events"
+        return "oms-remission-events"
 
     def get_attributes(self) -> Dict[str, str]:
         default_attributes = super().get_attributes()
-        return {**default_attributes, "event": self.event, "action": self.action_type.value}
+        return {
+            **default_attributes,
+            "event": self.event,
+            "action": self.action_type.value,
+        }
