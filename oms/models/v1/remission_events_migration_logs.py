@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import List, Optional
 
 from ._base import BaseModel, uuid_by_params
@@ -13,7 +13,7 @@ class RemissionEventsMigrationLogsModel(BaseModel):
     origin_type: ResmissionMigrationOrigins
     origin_id: Optional[str] = None
     origin_timestamp: int
-    processed_events: List[str] = []
+    processed_events: List[str] = field(default_factory=list)
     migration_payload: dict
 
     def __post_init__(self):
