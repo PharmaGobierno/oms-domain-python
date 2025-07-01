@@ -23,5 +23,5 @@ class RemissionEventsPubsubMessage(BasePubsubMessage):
         return {
             **default_attributes,
             "event": self.event,
-            "action": self.action_type.value,
+            "action_type": self.action_type.value,
         }
