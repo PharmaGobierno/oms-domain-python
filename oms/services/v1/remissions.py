@@ -9,6 +9,15 @@ from ._base import BaseService
 class RemissionsService(BaseService[RemissionsModel, RemissionsRepositoryInterface]):
     __model__ = RemissionsModel
 
+    def get_by_tracking_id(
+        self,
+        tracking_id: str,
+        *,
+        tenant: Optional[List[str]] = None,
+    ) -> Tuple[int, Iterator[RemissionsModel]]:
+        count, result = self.repository.get_by_tracking_id(tracking_id, tenant=tenant)
+        return count, map(lambda r: RemissionsModel(**r), result)
+
     def search_by_tracking(
         self,
         search_str: str,
