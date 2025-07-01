@@ -13,7 +13,7 @@ class RemissionEventMigrationsPubsubMessage(BasePubsubMessage):
     migration_log_id: str
     event: str
     event_timestamp: int
-    event_signature: str = ""
+    event_signature: str
     origin: ResmissionMigrationOrigins
     origin_id: str
     version: str = "1"
