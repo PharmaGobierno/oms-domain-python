@@ -7,7 +7,7 @@ from ._enums import ResmissionMigrationOrigins
 
 @dataclass(kw_only=True)
 class RemissionEventsMigrationLogsModel(BaseModel):
-    __entity_name__ = "remission-events-mirgration-logs"
+    __entity_name__ = "remission-events-migration-logs"
 
     tracking_id: str
     origin_type: ResmissionMigrationOrigins
