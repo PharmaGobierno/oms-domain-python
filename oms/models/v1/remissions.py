@@ -23,6 +23,7 @@ class RemissionsModel(UpdatableModel):
     item: Optional[ItemMin] = None
     lote: Optional[str] = None
     destination: Optional[RemissionDestination] = None
+    order_supply: Optional[str] = None
 
     def __post_init__(self):
         super().__post_init__()

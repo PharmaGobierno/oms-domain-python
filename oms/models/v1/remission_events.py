@@ -6,7 +6,7 @@ from oms.models.submodels.v1.remission_evidences import RemissionEvidence
 from oms.models.v1.minified.users import UserMin
 
 from ._base import EventfulModel, uuid_by_params
-from ._enums import RemissionEvents
+from ._enums import RemissionEvents, RemissionEventWarnings
 
 
 @dataclass(kw_only=True)
@@ -22,6 +22,8 @@ class RemissionEventsModel(EventfulModel[RemissionEvents]):
     delivered_amount: Optional[int] = None
     metadata: Optional[dict] = None
     event_note: RemissionEventNote = field(default_factory=RemissionEventNote)
+    warnings: Optional[List[RemissionEventWarnings]] = None
+    origin_platform: Optional[str] = None
 
     def __post_init__(self):
         super().__post_init__()

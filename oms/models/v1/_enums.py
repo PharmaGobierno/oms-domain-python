@@ -17,3 +17,7 @@ class RemissionEvents(str, Enum):
 class ResmissionMigrationOrigins(str, Enum):
     FIRESTORE = "FIRESTORE"
     BLUEYONDER = "BLUEYONDER"
+
+
+class RemissionEventWarnings(str, Enum):
+    MANUALLY_DELIVERED = "MANUALLY_DELIVERED"
