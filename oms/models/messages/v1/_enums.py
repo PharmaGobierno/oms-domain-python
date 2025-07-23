@@ -10,3 +10,7 @@ class EntityActionTypes(str, Enum):
 class ResmissionMigrationOrigins(str, Enum):
     FIRESTORE = "FIRESTORE"
     BLUEYONDER = "BLUEYONDER"
+
+class RemissionOrigins(str, Enum):
+    FIRESTORE = "FIRESTORE"
+    BLUEYONDER = "BLUEYONDER"
