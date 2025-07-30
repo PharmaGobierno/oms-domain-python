@@ -10,7 +10,7 @@ from .base_publisher import BasePubsubMessage
 @dataclass(kw_only=True)
 class RemissionsPubsubMessage(BasePubsubMessage):
     payload: RemissionsModel
-    event: str
+    origin_platform: str
     action_type: EntityActionTypes
     version: str = "1"
 
@@ -22,6 +22,5 @@ class RemissionsPubsubMessage(BasePubsubMessage):
         default_attributes = super().get_attributes()
         return {
             **default_attributes,
-            "event": self.event,
             "action_type": self.action_type.value,
         }
