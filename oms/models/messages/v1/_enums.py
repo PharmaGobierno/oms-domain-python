@@ -7,9 +7,10 @@ class EntityActionTypes(str, Enum):
     DELETED = "DELETED"
 
 
-class ResmissionMigrationOrigins(str, Enum):
+class RemissionMigrationOrigins(str, Enum):
     FIRESTORE = "FIRESTORE"
     BLUEYONDER = "BLUEYONDER"
+
 
 class RemissionOrigins(str, Enum):
     FIRESTORE = "FIRESTORE"

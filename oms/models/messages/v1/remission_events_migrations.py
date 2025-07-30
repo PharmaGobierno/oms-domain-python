@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import Dict
 
-from ._enums import ResmissionMigrationOrigins
+from ._enums import RemissionMigrationOrigins
 from .base_publisher import BasePubsubMessage
 
 
@@ -14,7 +14,7 @@ class RemissionEventMigrationsPubsubMessage(BasePubsubMessage):
     event: str
     event_timestamp: int
     event_signature: str
-    origin: ResmissionMigrationOrigins
+    origin: RemissionMigrationOrigins
     origin_id: str
     version: str = "1"
 

@@ -6,11 +6,10 @@ class OrderTypes(str, Enum):
 
 
 class RemissionEvents(str, Enum):
-    REMISSION_CREATED = "REMISSION_CREATED"
+    INTEGRATED = "INTEGRATED"
     RECEIPT_CONFIRMED = "RECEIPT_CONFIRMED"
     PICKING_COMPLETED = "PICKING_COMPLETED"
     DISPATCHED = "DISPATCHED"
-    INTEGRATED = "INTEGRATED"
     TRANSPORT_ARRIVAL = "TRANSPORT_ARRIVAL"
     PARTIAL_WITH_REJECTION = "PARTIAL_WITH_REJECTION"
     PARTIAL_COMPLETE = "PARTIAL_COMPLETE"
@@ -18,7 +17,7 @@ class RemissionEvents(str, Enum):
     REJECTED = "REJECTED"
 
 
-class ResmissionMigrationOrigins(str, Enum):
+class RemissionMigrationOrigins(str, Enum):
     FIRESTORE = "FIRESTORE"
     BLUEYONDER = "BLUEYONDER"
 
