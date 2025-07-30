@@ -10,6 +10,7 @@ class RemissionChangelogsModel(BaseModel):
     __entity_name__ = "remission-changelogs"
     tracking_id: str
     payload: dict
+    action_type: str
     origin_platform: str
     origin_timestamp: int
     author: UserMin
