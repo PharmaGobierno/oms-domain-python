@@ -1,7 +1,9 @@
 from dataclasses import asdict, dataclass
 from time import time
 from typing import Any, Dict, Optional
-from oms.models.minified.users import UserMin
+
+from oms.models.v1.minified.users import UserMin
+
 
 @dataclass
 class BasePubsubMessage:

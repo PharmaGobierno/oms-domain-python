@@ -1,5 +1,5 @@
 from ._base import BaseRepositoryInterface
 
 
-class OrderRepositoryInterface(BaseRepositoryInterface):
+class OrdersRepositoryInterface(BaseRepositoryInterface):
     pass

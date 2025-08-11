@@ -1,11 +1,12 @@
 from dataclasses import dataclass
 from typing import Optional
 
+from oms.models.submodels.v1.remission_destinations import RemissionDestination
+from oms.models.v1.minified.items import ItemMin
+from oms.models.v1.minified.users import UserMin
+
 from ._base import UpdatableModel, uuid_by_params
-from oms.models.minified.items import ItemMin
-from oms.models.minified.users import UserMin
-from oms.models.submodels.remission_destinations import RemissionDestination
-from oms.models.enums.remission_events import RemissionEvents
+from ._enums import RemissionEvents
 
 
 @dataclass(kw_only=True)
@@ -14,14 +15,15 @@ class RemissionsModel(UpdatableModel):
 
     tracking_id: str
     order_id: str
-    last_author: UserMin
-    current_event: RemissionEvents
-    current_event_timestamp: int
+    current_event: Optional[RemissionEvents] = None
+    current_event_timestamp: Optional[int] = None
+    last_load: Optional[str] = None
+    last_author: Optional[UserMin] = None
     original_amount: Optional[int] = None
     item: Optional[ItemMin] = None
     lote: Optional[str] = None
     destination: Optional[RemissionDestination] = None
-    last_load: Optional[str] = None
+    order_supply: Optional[str] = None
 
     def __post_init__(self):
         super().__post_init__()
