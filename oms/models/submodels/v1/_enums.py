@@ -1,7 +1,7 @@
 from enum import Enum
 
 
-class EvidenceType(Enum):
+class EvidenceType(str, Enum):
     JPEG = "JPEG"
     PNG = "PNG"
     PDF = "PDF"
